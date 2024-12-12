@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Buttons</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Filter Buttons</h2>
+        <div class="text-center my-4">
+            <button class="btn btn-primary filter-btn" data-filter="all">All</button>
+            <button class="btn btn-success filter-btn" data-filter="category1">Category 1</button>
+            <button class="btn btn-danger filter-btn" data-filter="category2">Category 2</button>
+        </div>
+        <div class="row">
+            <div class="col-md-4 item" data-category="category1">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Item 1</h5>
+                        <p class="card-text">Category 1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 item" data-category="category2">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Item 2</h5>
+                        <p class="card-text">Category 2</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 item" data-category="category1">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Item 3</h5>
+                        <p class="card-text">Category 1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<style>
+    .item {
+    display: none;
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('.item');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.getAttribute('data-filter');
+
+            items.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+
+</script>
