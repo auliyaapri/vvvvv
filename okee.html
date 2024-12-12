@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Design</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            color: white;
+            background: url('https://cdn.pixabay.com/photo/2023/11/07/06/52/forest-8371211_1280.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .header .time {
+            font-size: 24px;
+        }
+
+        .header .info {
+            font-size: 14px;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            font-size: 36px;
+        }
+
+        .icons {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="time">13.00</div>
+        <div class="info">Tangerang, Banten, Indonesia</div>
+    </div>
+
+    <div class="logo">
+        <div>SWISS-BELHOTEL</div>
+        <div>ROOM 502</div>
+        <div>25°C</div>
+    </div>
+
+    <div class="content">
+        Swimming Pool
+    </div>
+
+    <div class="icons">
+        <div class="icon">📷</div>
+        <div class="icon">🌐</div>
+        <div class="icon">📞</div>
+        <div class="icon">📧</div>
+        <div class="icon">%</div>
+        <div class="icon">🔔</div>
+    </div>
+
+    <div class="footer">
+        For information: +62-21-2941-212 | Hotel WhatsApp | Ext 1 | Hotel Operator: +62-822-1743-5941 Ext 4 | Swiss Café NTR Restaurant WhatsApp
+    </div>
+</body>
+</html>
+
+

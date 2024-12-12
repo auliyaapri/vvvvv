@@ -1,0 +1,89 @@
+<style>
+    body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#timer-display {
+    font-size: 48px;
+    margin-top: 20px;
+}
+
+input, button {
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+button {
+    cursor: pointer;
+}
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Timer</h1>
+        <input type="number" id="minutes" placeholder="Enter minutes">
+        <button id="start">Start Timer</button>
+        <button id="stop" style="display: none;">Stop Alarm</button>
+        <div id="timer-display">00:00</div>
+        <audio id="alarm-sound" src="alarm.mp3" preload="auto"></audio>
+    </div>
+    <script>
+        document.getElementById('start').addEventListener('click', function() {
+    let minutes = parseInt(document.getElementById('minutes').value);
+    let seconds = minutes * 60;
+    let display = document.getElementById('timer-display');
+    let alarmSound = document.getElementById('alarm-sound');
+    let stopButton = document.getElementById('stop');
+
+    function updateTimer() {
+        let mins = Math.floor(seconds / 60);
+        let secs = seconds % 60;
+        display.textContent = `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
+
+        if (seconds > 0) {
+            seconds--;
+        } else {
+            clearInterval(timerInterval);
+            alarmSound.play();
+            stopButton.style.display = 'inline';
+        }
+    }
+
+    updateTimer();
+    let timerInterval = setInterval(updateTimer, 1000);
+
+    stopButton.addEventListener('click', function() {
+        alarmSound.pause();
+        alarmSound.currentTime = 0;
+        stopButton.style.display = 'none';
+    });
+});
+
+    </script>
+</body>
+</html>
+
+
